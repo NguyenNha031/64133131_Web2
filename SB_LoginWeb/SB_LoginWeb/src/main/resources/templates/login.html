@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #3366cc; /* Màu nền xanh */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 250px;
+            padding: 10px;
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: white;
+            font-size: 16px;
+            outline: none;
+        }
+        .input-label {
+            position: absolute;
+            top: -8px;
+            left: 10px;
+            background: green;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        button {
+            background: #ddd;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px gray;
+        }
+        button:hover {
+            background: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2 style="color: white;">Login Form</h2>
+    
+    <form action="/login" method="post">
+        <div class="input-container">
+            <span class="input-label">id</span>
+            <input type="text" name="id" required>
+        </div>
+
+        <div class="input-container">
+            <span class="input-label">password</span>
+            <input type="password" name="password" required>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p style="color: red;" th:text="${error}"></p>
+</div>
+
+</body>
+</html>
