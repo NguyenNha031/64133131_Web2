@@ -12,9 +12,9 @@ public class HomeController {
     List<SinhVien> dsSV = new ArrayList<>();
 
     public HomeController() {
-        dsSV.add(new SinhVien("SV001", "Nguyễn Văn A", 8.5));
-        dsSV.add(new SinhVien("SV002", "Trần Thị B", 7.0));
-        dsSV.add(new SinhVien("SV003", "Lê Văn C", 6.8));
+        dsSV.add(new SinhVien("001", "Nguyễn Thanh Nhàx", 1.5));
+        dsSV.add(new SinhVien("002", "Tguyễn Thị Bình", 7.5));
+        dsSV.add(new SinhVien("003", "Bình Văn trương", 6.8));
     }
     @GetMapping("/studentList")
     public String listPage(Model model) {
@@ -31,8 +31,6 @@ public class HomeController {
     public String aboutPage() {
         return "about";
     }
-
-
 
     @GetMapping("/address")
     public String addressPage() {
