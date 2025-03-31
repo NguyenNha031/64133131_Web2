@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách sinh viên</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Danh sách sinh viên</h2>
+    <a href="#" class="btn btn-primary mb-3 load-content" data-url="/addStudent">Thêm sinh viên</a>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>MSSV</th>
+            <th>Họ Tên</th>
+            <th>Điểm TB</th>
+            <th>Thao tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sv : ${dsSV}">
+            <td th:text="${sv.mssv}">MSSV</td>
+            <td th:text="${sv.hoTen}">Họ tên</td>
+            <td th:text="${sv.diemTb}">Điểm TB</td>
+            <td>
+                <a th:href="@{'/editStudent/' + ${sv.mssv}}" class="btn btn-warning btn-sm">Sửa</a>
+                <a th:href="@{'/deleteStudent/' + ${sv.mssv}}" class="btn btn-danger btn-sm"
+                   onclick="return confirm('Bạn có chắc muốn xóa sinh viên này?')">Xóa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+<script>
+
+</script>

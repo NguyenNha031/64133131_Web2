@@ -1,8 +1,12 @@
 package vn.edu.nha.tonghopgk.controllers;
 
 import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@Setter
+@NoArgsConstructor
 public class SinhVien {
     private String mssv;
     private String hoTen;
@@ -13,5 +17,4 @@ public class SinhVien {
         this.hoTen = hoTen;
         this.diemTb = diemTb;
     }
-
 }
