@@ -1,9 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,21 +10,19 @@
 
     <title>SB Admin 2 - Dashboard</title>
 
-    <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-
-
-    <link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet">
-
-    <!-- Custom styles for this template-->
     <link rel="stylesheet" th:href="@{/css/sb-admin-2.min.css}">
-
-
-
-
+    <style>
+        body {
+            padding-bottom: 60px;
+        }
+        .footer {
+            height: 60px;
+            line-height: 60px;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -40,13 +36,16 @@
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Header -->
+        <div class="container-fluid bg-light py-3 px-4 d-flex align-items-center justify-content-between shadow-sm">
+            <span class="fw-bold text-dark">Nguyễn Thanh Nhã</span>
+        </div>
+        <!-- End Header -->
 
-        <!-- Main Content -->
         <!-- Main Content -->
         <div id="content-container">
             <div th:replace="fragments/contentSB"></div>
         </div>
-
         <!-- End of Main Content -->
 
     </div>
@@ -61,8 +60,7 @@
 </a>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -80,7 +78,6 @@
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
 <!-- Bootstrap core JavaScript -->
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -100,23 +97,41 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        // Xử lý click trên các link load-content
         document.querySelectorAll(".load-content").forEach(link => {
             link.addEventListener("click", function (e) {
                 e.preventDefault();
                 let url = this.getAttribute("data-url");
+                loadContent(url);
 
-                fetch(url)
-                    .then(response => response.text())
-                    .then(html => {
-                        document.getElementById("content-container").innerHTML = html;
-                    })
-                    .catch(error => console.error("Error loading content:", error));
+                // Cập nhật active state cho menu
+                document.querySelectorAll(".nav-item").forEach(item => {
+                    item.classList.remove("active");
+                });
+                this.parentElement.classList.add("active");
             });
         });
+
+        // Hàm load nội dung
+        function loadContent(url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById("content-container").innerHTML = html;
+                })
+                .catch(error => console.error("Error loading content:", error));
+        }
+
+        // Load trang chủ mặc định khi trang được tải
+        loadContent('/homepage');
     });
 </script>
-
-
+<footer class="footer mt-auto py-3 bg-light fixed-bottom">
+    <div class="container text-center">
+        <span class="text-muted">
+            <i class="far fa-copyright"></i> Copyright 2025 by Nguyễn Thanh Nhã - FIT.NTU
+        </span>
+    </div>
+</footer>
 </body>
-
 </html>
