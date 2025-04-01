@@ -1,0 +1,12 @@
+.anhbia {
+    background-image: url("https://marketplace.canva.com/EAE84WjbiUo/1/0/1600w/canva-xanh-d%C6%B0%C6%A1ng-h%E1%BB%93ng-%E1%BA%A3nh-%E1%BA%A3nh-b%C3%ACa-facebook-v%E1%BB%81-m%C3%B9a-h%C3%A8-t0QUu8u8GqM.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+}
+footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa thông tin sinh viên</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <div class="mb-3">
+        <a th:href="@{/static}" class="btn btn-info">← Quay về trang chủ</a>
+    </div>
+
+    <h2>Sửa thông tin sinh viên</h2>
+    <form th:action="@{/editStudent}" th:object="${sinhVien}" method="post">
+        <div class="form-group">
+            <label>MSSV:</label>
+            <input type="text" class="form-control" th:field="*{mssv}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="hoTen">Họ và tên:</label>
+            <input type="text" class="form-control" id="hoTen" th:field="*{hoTen}" required>
+        </div>
+        <div class="form-group">
+            <label for="diemTb">Điểm trung bình:</label>
+            <input type="number" step="0.1" class="form-control" id="diemTb" th:field="*{diemTb}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu</button>
+        <a th:href="@{/studentList}" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>
+</body>
+</html>
